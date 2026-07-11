@@ -388,31 +388,25 @@ f"""
         20
     )
 
-
     prices = []
 
-for a in area_range:
 
-    test = pd.DataFrame(
-        {
-            "건물나이":[age],
-            "전용면적(㎡)":[a],
-            "층":[floor],
-            "세대수":[households],
-            "연면적":[total_area],
-            "지상층수":[ground_floor]
-        }
-    )
+    for a in area_range:
 
-    p = model.predict(test)[0]
-
-    prices.append(p)
+        test = pd.DataFrame(
+            {
+                "건물나이":[age],
+                "전용면적(㎡)":[a],
+                "층":[floor],
+                "세대수":[households],
+                "연면적":[total_area],
+                "지상층수":[ground_floor]
+            }
+        )
 
         p = model.predict(test)[0]
 
-
         prices.append(p)
-
 
 
     fig2, ax2 = plt.subplots()
