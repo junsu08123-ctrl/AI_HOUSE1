@@ -160,7 +160,7 @@ if st.button(
     use_container_width=True
 ):
 
-input_data = pd.DataFrame(
+    input_data = pd.DataFrame(
     {
         "건물나이":[age],
         "전용면적(㎡)":[area],
