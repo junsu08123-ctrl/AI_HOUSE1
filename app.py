@@ -119,6 +119,34 @@ with col3:
         value=st.session_state.floor
     )
 
+col4, col5, col6 = st.columns(3)
+
+
+with col4:
+
+    households = st.number_input(
+        "🏠 세대수",
+        min_value=1,
+        value=100
+    )
+
+
+with col5:
+
+    total_area = st.number_input(
+        "📐 연면적(㎡)",
+        min_value=10.0,
+        value=5000.0
+    )
+
+
+with col6:
+
+    ground_floor = st.number_input(
+        "🏢 지상층수",
+        min_value=1,
+        value=10
+    )
 
 st.divider()
 
@@ -132,14 +160,16 @@ if st.button(
     use_container_width=True
 ):
 
-    input_data = pd.DataFrame(
-        {
-            "건물나이":[age],
-            "전용면적(㎡)":[area],
-            "층":[floor]
-        }
-    )
-
+input_data = pd.DataFrame(
+    {
+        "건물나이":[age],
+        "전용면적(㎡)":[area],
+        "층":[floor],
+        "세대수":[households],
+        "연면적":[total_area],
+        "지상층수":[ground_floor]
+    }
+)
 
     result = model.predict(input_data)[0]
 
@@ -365,13 +395,16 @@ f"""
     for a in area_range:
 
 
-        test = pd.DataFrame(
-            {
-                "건물나이":[age],
-                "전용면적(㎡)":[a],
-                "층":[floor]
-            }
-        )
+test = pd.DataFrame(
+    {
+        "건물나이":[age],
+        "전용면적(㎡)":[a],
+        "층":[floor],
+        "세대수":[households],
+        "연면적":[total_area],
+        "지상층수":[ground_floor]
+    }
+)
 
 
         p = model.predict(test)[0]
