@@ -385,7 +385,7 @@ f"""
     area_range = np.linspace(
         max(10, area-30),
         area+50,
-        10
+        20
     )
 
     prices = []
