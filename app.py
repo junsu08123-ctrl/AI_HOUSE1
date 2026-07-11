@@ -404,11 +404,9 @@ for a in area_range:
         }
     )
 
-
     p = model.predict(test)[0]
 
     prices.append(p)
-
 
         p = model.predict(test)[0]
 
